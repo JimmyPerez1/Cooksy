@@ -17,7 +17,6 @@ const userSchema = new Schema({
     required: true,
   },
 }, {
-  // Mongoose will maintain a createdAt & updatedAt property
   timestamps: true
 });
 

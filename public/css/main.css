@@ -12,13 +12,13 @@ body {
 
 nav,
 footer {
-  background-color: lightblue;
+  background-color: #FFCC99;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2vmin;
   font-size: 2vh;
-  color: lightslategray;
+  color: #778899;
 }
 
 nav a {
