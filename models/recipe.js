@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-// shortcut variable
+
 const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
@@ -51,6 +51,10 @@ const recipeSchema = new Schema({
 	 favoritedBy: {
     type: [Schema.Types.ObjectId],
 		ref: 'User'
+  },
+  	 tags: {
+    type: [Schema.Types.ObjectId],
+		ref: 'Tag'
   },
 	reviews: [reviewSchema]
 }, {

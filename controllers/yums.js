@@ -1,21 +1,22 @@
 const express = require('express');
 const router = express.Router();
-const Recipes = require('../models/recipe')
 
+// Middleware used to protect routes that need a logged in user
 const ensureLoggedIn = require('../middleware/ensure-logged-in');
 
+// This is how we can more easily protect ALL routes for this router
 // router.use(ensureLoggedIn);
 
-// ALL paths start with '/recipes'
+// ALL paths start with '/unicorns'
 
 // index action
-// GET /recipes
-router.get('/', async (req, res) => {
-  const recipes = await Recipes.find({}).sort('-createdAt');
-  res.render('recipes/index.ejs', { recipes, title : 'GLOBAL COOKBOOK'})
+// GET /unicorns
+// Example of a non-protected route
+router.get('/', (req, res) => {
+  res.send('List of all unicorns - not protected');
 });
 
-// GET /recipes/new
+// GET /unicorns/new
 // Example of a protected route
 router.get('/new', ensureLoggedIn, (req, res) => {
   res.send('Create a unicorn!');

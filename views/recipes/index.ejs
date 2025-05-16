@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+<h1>GLOBAL COOKBOOK</h1>
+
+<% if (recipes.length) {%>
+    <ul>
+       <% recipes.forEach((recipe) => {%>
+        <li>
+            <a gref="/recipes/<%= recipe._id%>">
+            <%= recipe.address %>
+            </a>
+        </li>
+        <% }) %> 
+    </ul>
+    <% } else {%>
+        <p>There Are No Recipes Yet</p>
+<% } %>
+
+<%- include('../partials/footer') %>

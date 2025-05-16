@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/main.css">
-  <title>Express Starter</title>
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+  <title>COOKSY</title>
 </head>
 <body>
   <nav>
-    <a href="/">🏠</a>
+    <a href="/">HOME</a>
     <div>
-      <a href="/recipes">ALL UNICORNS</a>
+      <a href="/recipes">EXPLORE GLOBAL RECIPES</a>
       <% if (user) { %>
-        <a href="/recipes/new">ADD UNICORN</a>
+        <a href="/recipes/new">ADD A RECIPE</a>
+        <a href="/recipes/myCookBook">MY COOKBOOK</a>
+        <a href="/recipes/favs">MY FAVS</a>
+        <a href="/user/:id">MY PROFILE</a>
         <a href="/auth/sign-out">SIGN OUT</a>
-        <span><%= user.name %></span>
+        <span>CHEF: <%= user.name.toUpperCase() %></span>
       <% } else { %>
         <a href="/auth/sign-up">SIGN UP</a>
         <a href="/auth/sign-in">SIGN IN</a>

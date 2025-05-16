@@ -19,6 +19,7 @@ footer {
   padding: 2vmin;
   font-size: 2vh;
   color: #778899;
+  text-align: center;
 }
 
 nav a {
@@ -77,3 +78,4 @@ button:hover {
 .error-msg {
   color: rgb(223, 116, 116);
 }
+

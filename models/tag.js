@@ -1,23 +1,21 @@
-// const mongoose = require("mongoose");
-// // shortcut variable
-// const Schema = mongoose.Schema;
+const mongoose = require("mongoose");
 
-// const userSchema = new Schema({
-//   email: {
-//     type: String,
-//     required: true,
-//     unique: true,
-//     lowercase: true
-//   },
-//   name: {
-//     type: String
-//   },
-//   password: {
-//     type: String,
-//     required: true,
-//   },
-// }, {
-//   timestamps: true
-// });
+const Schema = mongoose.Schema;
 
-// module.exports = mongoose.model("User", userSchema);
+const tagSchema = new Schema({
+  name: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true
+  },
+  category: {
+    type: String,
+    enum: ['diet', 'mealType', 'pricePoint', 'difficulty'],
+    required: true
+  }
+}, {
+  timestamps: true
+});
+
+module.exports = mongoose.model("Tag", tagSchema);
