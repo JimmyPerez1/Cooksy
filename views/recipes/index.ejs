@@ -6,8 +6,8 @@
     <ul>
        <% recipes.forEach((recipe) => {%>
         <li>
-            <a gref="/recipes/<%= recipe._id%>">
-            <%= recipe.address %>
+            <a href="/recipes/<%= recipe._id%>">
+                <%= recipe.name %>
             </a>
         </li>
         <% }) %> 

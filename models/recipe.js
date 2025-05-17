@@ -35,9 +35,17 @@ const recipeSchema = new Schema({
     type: String,
     required: true,
   },
+  ingredients: {
+  type: [String],
+  required: true,
+},
   directions: {
-    type: String,
+    type: [String],
     required: true,
+  },
+  cookTime: {
+    type: Number,
+    min: 0,
   },
 	createdBy: {
     type: Schema.Types.ObjectId,
@@ -48,7 +56,7 @@ const recipeSchema = new Schema({
     type: [Schema.Types.ObjectId],
 		ref: 'User'
   },
-	 favoritedBy: {
+	favoritedBy: {
     type: [Schema.Types.ObjectId],
 		ref: 'User'
   },
