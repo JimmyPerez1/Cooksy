@@ -60,6 +60,7 @@ app.use('/recipes', require('./controllers/recipes'));
 // app.use('/recipes', require('./controllers/favorites'));
 // app.use('/recipes', require('./controllers/yums'));
 // app.use('/recipes', require('./controllers/reviews'));
+app.use('/users', require('./controllers/users'));
 
 
 app.listen(port, () => {

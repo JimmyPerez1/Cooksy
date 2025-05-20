@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookbook App</title>
+</head>
+<body>
+<%- include('../partials/header.ejs') %>
+
+  <div>
+    
+    <h1>Explore The COOKSY Community</h1>
+
+    <ul>
+      <% users.forEach(user => { %>
+        <li>
+          <a href="/users/<%= user._id %>"><%= user.name %></a>
+        </li>
+      <% }) %>
+    </ul>
+  </div>  
+</body>
+</html>
