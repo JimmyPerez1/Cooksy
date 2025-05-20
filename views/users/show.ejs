@@ -1,0 +1,25 @@
+<body>
+
+<%- include('../partials/header.ejs') %>
+  
+  <div>
+    <h1><%= user.name %>'s PROFILE</h1>
+
+<% if (recipes && recipes.length > 0) { %>
+    <ul>
+      <% recipes.forEach(recipe => { %>
+        <li>
+            <a href="/recipes/<%= recipe._id %>"><%= recipe.name %></a>
+        </li>
+      <% }) %>
+    </ul>
+<% } else { %>
+     <p>No Recipes at this time</p>
+<% } %>
+
+    <a href="/users">Back to Community Page</a>
+
+  </div>
+  
+  </body>
+</html>
