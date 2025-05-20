@@ -57,6 +57,9 @@ app.use('/auth', require('./controllers/auth'));
 
 // Update the unicorns data resource with your "main" resource
 app.use('/recipes', require('./controllers/recipes'));
+// app.use('/recipes', require('./controllers/favorites'));
+// app.use('/recipes', require('./controllers/yums'));
+// app.use('/recipes', require('./controllers/reviews'));
 
 
 app.listen(port, () => {

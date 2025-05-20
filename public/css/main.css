@@ -78,4 +78,25 @@ button:hover {
 .error-msg {
   color: rgb(223, 116, 116);
 }
+#show-page {
+  display: flex;
+  gap: 2rem;
+}
 
+#show-page > div {
+  flex: 1;
+  max-width: 33%;
+}
+
+#show-page .reviews {
+  max-height: 600px;
+  overflow-y: auto;
+  border-left: 1px solid #ccc;
+  padding-left: 1rem;
+}
+
+#show-page .review-item {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}

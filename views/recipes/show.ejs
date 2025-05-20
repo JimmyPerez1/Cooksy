@@ -1,0 +1,81 @@
+<%- include('../partials/header.ejs') %>
+
+<h1><%= recipe.name %></h1>
+
+<section id="recipe-show">
+
+  <div id="recipe-image">
+    <% if (recipe.image) { %>
+      <img src="<%= recipe.image %>" alt="<%= recipe.name %>" style="width: 100%; border-radius: 8px;" />
+    <% } else { %>
+      <img src="https://previews.123rf.com/images/kryzhov/kryzhov1809/kryzhov180902121/108986666-closeup-image-of-woman-eating-from-empty-plate.jpg" />
+    <% } %>
+  </div>
+
+  <div id="recipe-details">
+    <div id="recipe-info">
+      <h2><%= recipe.name %></h2>
+      <p><strong>Chef:</strong> <%= recipe.createdBy.name %></p>
+      <p><strong>Created On:</strong> <%= recipe.createdAt.toLocaleDateString() %></p>
+
+      <h3>Ingredients</h3>
+      <ul>
+        <% recipe.ingredients.forEach(ingredient => { %>
+          <li><%= ingredient %></li>
+        <% }) %>
+      </ul>
+
+      <h3>Directions</h3>
+      <ol>
+        <% recipe.directions.forEach(step => { %>
+          <li><%= step %></li>
+        <% }) %>
+      </ol>
+    </div>
+    <div id="recipe-actions">
+            <p>😋 <%= recipe.yumedBy.length %> Yums</p>
+      <p>❤️ <%= recipe.favoritedBy.length %> Favorites</p>
+      <% if (isYumed) { %>
+        <form action="/recipes/<%= recipe._id %>/favorites?_method=DELETE" method="POST">
+          <button type="submit"><i class="bi bi-heart-fill"></i> Un-yum</button>
+        </form>
+      <% } else if (user) { %>
+        <form action="/recipes/<%= recipe._id %>/favorites" method="POST">
+          <button type="submit"><i class="bi bi-heart"></i> Yum it!</button>
+        </form>
+      <% } %>
+
+      <% if (isFavored) { %>
+        <form action="/recipes/<%= recipe._id %>/favorites?_method=DELETE" method="POST">
+          <button type="submit"><i class="bi bi-star-fill"></i> Remove from Favs</button>
+        </form>
+      <% } else if (user) { %>
+        <form action="/recipes/<%= recipe._id %>/favorites" method="POST">
+          <button type="submit"><i class="bi bi-star"></i> Add to Favs</button>
+        </form>
+      <% } %>
+    </div>
+  </div>
+    
+
+<div id="recipe-reviews">
+
+    <h3>Reviews</h3>
+    <% if (recipe.reviews.length) { %>
+      <% recipe.reviews.forEach(review => { %>
+        <div class="review">
+          <p><strong><%= review.user.username %></strong> - <%= review.rating %>/5</p>
+          <p><%= review.experience %></p>
+          <hr />
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p>No reviews yet.</p>
+    <% } %>
+  </div>
+
+</section>
+
+
+
+<%- include('../partials/footer.ejs') %>
