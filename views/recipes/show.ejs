@@ -17,6 +17,9 @@
       <h2><%= recipe.name %></h2>
       <p><strong>Chef:</strong> <%= recipe.createdBy.name %></p>
       <p><strong>Created On:</strong> <%= recipe.createdAt.toLocaleDateString() %></p>
+      <p><strong>Description:</strong> <%= recipe.description %></p>
+
+
 
       <h3>Ingredients</h3>
       <ul>
@@ -32,27 +35,30 @@
         <% }) %>
       </ol>
     </div>
-    <div id="recipe-actions">
+    <div class="button-group">
             <p>😋 <%= recipe.yumedBy.length %> Yums</p>
       <p>❤️ <%= recipe.favoritedBy.length %> Favorites</p>
       <% if (isYumed) { %>
         <form action="/recipes/<%= recipe._id %>/favorites?_method=DELETE" method="POST">
-          <button type="submit"><i class="bi bi-heart-fill"></i> Un-yum</button>
+          <button type="submit"><i class="bi bi-heart-fill"></i>🤮 Un-yum</button>
         </form>
       <% } else if (user) { %>
         <form action="/recipes/<%= recipe._id %>/favorites" method="POST">
-          <button type="submit"><i class="bi bi-heart"></i> Yum it!</button>
+          <button type="submit"><i class="bi bi-heart"></i>😋 Yum it!</button>
         </form>
       <% } %>
 
       <% if (isFavored) { %>
         <form action="/recipes/<%= recipe._id %>/favorites?_method=DELETE" method="POST">
-          <button type="submit"><i class="bi bi-star-fill"></i> Remove from Favs</button>
+          <button type="submit"><i class="bi bi-star-fill"></i>💔 Remove from Favs</button>
         </form>
       <% } else if (user) { %>
         <form action="/recipes/<%= recipe._id %>/favorites" method="POST">
-          <button type="submit"><i class="bi bi-star"></i> Add to Favs</button>
+          <button type="submit"><i class="bi bi-star"></i>❤️ Add to Favs</button>
         </form>
+      <% } %>
+      <% if (user && user._id.equals(recipe.createdBy._id)) { %>
+          <a href="/recipes/<%= recipe._id %>/edit" class="btn full-width">✏️ Edit recipe</a>
       <% } %>
     </div>
   </div>

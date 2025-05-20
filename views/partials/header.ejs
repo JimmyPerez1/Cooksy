@@ -13,10 +13,11 @@
     <div>
       <a href="/recipes">EXPLORE GLOBAL RECIPES</a>
       <% if (user) { %>
+        <a href="/community">COOKSY COMMUNITY</a>
         <a href="/recipes/new">ADD A RECIPE</a>
         <a href="/recipes/myCookBook">MY COOKBOOK</a>
         <a href="/recipes/favs">MY FAVS</a>
-        <a href="/user/:id">MY PROFILE</a>
+        <a href="/community/:id">MY PROFILE</a>
         <a href="/auth/sign-out">SIGN OUT</a>
         <span>CHEF: <%= user.name.toUpperCase() %></span>
       <% } else { %>

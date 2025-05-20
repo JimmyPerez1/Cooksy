@@ -3,6 +3,7 @@ const router = express.Router();
 const Recipes = require('../models/recipe')
 
 const ensureLoggedIn = require('../middleware/ensure-logged-in');
+const recipe = require('../models/recipe');
 
 // router.use(ensureLoggedIn);
 
@@ -54,15 +55,26 @@ router.get('/:id', async (req, res) => {
   res.render('recipes/show.ejs', { recipe, isYumed, isFavored })
 })
 
+// Delete /recipes/:id
+router.delete('/:id', ensureLoggedIn, async (req, res) => {
+  await Recipes.findByIdAndDelete(req.params.id);
+  res.redirect('/recipes')
+})
 
 
+//EDIT /recipes/edit
+router.get('/:id/edit', ensureLoggedIn, async (req, res) => {
+  const recipe = await Recipes.findById(req.params.id);
+  res.render('recipes/edit.ejs', { recipe })
+});
 
-
-
-
-
-
-
+// Update /recipes/:id
+router.put('/:id', async (req, res) => {
+  const recipe = await Recipes.findById(req.params.id);
+  Object.assign(recipe, req.body);
+  await recipe.save();
+  res.redirect(`/recipes/${recipe._id}`);
+});
 
 
 

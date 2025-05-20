@@ -100,3 +100,67 @@ button:hover {
   border-bottom: 1px solid #eee;
   padding-bottom: 0.5rem;
 }
+
+.btn,
+button {
+  font-size: 2vmin;
+  padding: 1vmin;
+  border-radius: 1vmin;
+  border: none;
+  background-color: white;
+  color: slategray;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover,
+button:hover {
+  background-color: lightslategray;
+  color: white;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1vmin;
+  width: 100%;
+  max-width: 300px;
+}
+
+.button-group form,
+.button-group .btn {
+  width: 100%;
+}
+
+.full-width {
+  display: block;
+  text-align: center;
+}
+
+#recipe-show {
+  display: flex;
+  gap: 2rem;
+  padding: 2vmin;
+}
+
+#recipe-image,
+#recipe-details,
+#recipe-reviews {
+  flex: 1;
+  max-width: 33%;
+}
+
+
+#recipe-reviews {
+  max-height: 600px;
+  overflow-y: auto;
+  border-left: 1px solid #ccc;
+  padding-left: 1rem;
+}
+
+.review-item {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
