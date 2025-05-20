@@ -3,7 +3,10 @@
 <%- include('../partials/header.ejs') %>
   
   <div>
-    <h1><%= user.name %>'s PROFILE</h1>
+    <h1>
+        <img src="<%= user.image || '/images/Stockprofile.png' %>" class="profile-pic-large" alt="Profile" />
+        <%= user.name %>'s PROFILE
+    </h1>
 
 <% if (recipes && recipes.length > 0) { %>
     <ul>
