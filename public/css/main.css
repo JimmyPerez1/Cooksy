@@ -166,8 +166,8 @@ button:hover {
 }
 
 .profile-pic {
-  width: 45px;
-  height: 45px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 8px;
@@ -184,3 +184,29 @@ button:hover {
   margin-right: 12px;
   vertical-align: middle;
 }
+
+  .users-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem; /* space between cards */
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .user.card {
+    width: 200px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .user.card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+  }

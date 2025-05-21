@@ -4,7 +4,12 @@
   
   <div>
     <h1>
-        <img src="<%= user.image || '/images/Stockprofile.png' %>" class="profile-pic-large" alt="Profile" />
+      <% const encodedSeed = encodeURIComponent(user.name); %>
+        <img 
+          src="https://api.dicebear.com/9.x/fun-emoji/svg?seed=<%= encodedSeed %>&backgroundColor=ffdfbf&eyes=closed,closed2,cute,glasses,love,pissed,plain,sad,shades,sleepClose,stars&mouth=cute,drip,lilSmile,pissed,plain,sad,shout,shy,sick,smileLol,smileTeeth,tongueOut,wideSmile" 
+          class="profile-pic-large" 
+          alt="Profile" 
+        />
         <%= user.name %>'s COOKBOOK
     </h1>
 
