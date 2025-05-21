@@ -1,17 +1,15 @@
 <body>
 <%- include('../partials/header.ejs') %>
 
-  <div>
-    
-    <h1>Explore The COOKSY Community</h1>
+<h1>Explore The COOKSY Community</h1>
 
-    <ul>
+  <div>
       <% users.forEach(user => { %>
-        <li>
-          <a href="/users/<%= user._id %>"><%= user.name %></a>
-        </li>
+        <div class="user card">
+            <img src="<%= user.image || '/images/Stockprofile.png' %>" alt="Profile" class="profile-pic" />
+            <a href="/users/<%= user._id %>"><%= user.name %></a>
+        </div>
       <% }) %>
-    </ul>
   </div>  
 </body>
 </html>

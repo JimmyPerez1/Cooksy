@@ -12,13 +12,13 @@
     <ul>
       <% recipes.forEach(recipe => { %>
         <li>
-            <a href="/recipes/<%= recipe._id %>"><%= recipe.name %></a>
+          <a href="/recipes/<%= recipe._id %>"><%= recipe.name %></a>
         </li>
       <% }) %>
     </ul>
-<% } else { %>
+  <% } else { %>
      <p>No Recipes at this time</p>
-<% } %>
+  <% } %>
 
     <a href="/users">Back to Community Page</a>
 

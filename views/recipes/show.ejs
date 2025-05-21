@@ -39,11 +39,11 @@
             <p>😋 <%= recipe.yumedBy.length %> Yums</p>
       <p>❤️ <%= recipe.favoritedBy.length %> Favorites</p>
       <% if (isYumed) { %>
-        <form action="/recipes/<%= recipe._id %>/favorites?_method=DELETE" method="POST">
+        <form action="/recipes/<%= recipe._id %>/yums?_method=DELETE" method="POST">
           <button type="submit"><i class="bi bi-heart-fill"></i>🤮 Un-yum</button>
         </form>
       <% } else if (user) { %>
-        <form action="/recipes/<%= recipe._id %>/favorites" method="POST">
+        <form action="/recipes/<%= recipe._id %>/yums" method="POST">
           <button type="submit"><i class="bi bi-heart"></i>😋 Yum it!</button>
         </form>
       <% } %>

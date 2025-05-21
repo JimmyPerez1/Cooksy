@@ -7,7 +7,7 @@ const Recipe = require('../models/recipe.js');
 // Get /users
 router.get('/', async (req, res) => {
   const users = await User.find({})
-    res.render('users/index.ejs', {users})
+    res.render('users/index.ejs', { users })
 })
 
 // Show users

@@ -17,10 +17,10 @@
         <a href="/recipes/new">ADD A RECIPE</a>
         <a href="/recipes/myCookBook">MY COOKBOOK</a>
         <a href="/recipes/favs">MY FAVS</a>
-        <a href="/community/:id">MY PROFILE</a>
+        <a href="/users/<%= user._id %>">MY PROFILE</a>
         <a href="/auth/sign-out">SIGN OUT</a>
         <span>
-          <img src="<%= user.image || '/images/Stockprofile.png' %>" alt="Profile pic" class="profile-pic" />
+          <img src="<%= user.image || '/images/Stockprofile.png' %>" alt="Profile-pic" class="profile-pic" />
           CHEF: <%= user.name.toUpperCase() %>
         </span>
       <% } else { %>
