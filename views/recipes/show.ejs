@@ -49,11 +49,11 @@
       <% } %>
 
       <% if (isFavored) { %>
-        <form action="/recipes/<%= recipe._id %>/favorites?_method=DELETE" method="POST">
+        <form action="/recipes/<%= recipe._id %>/favs?_method=DELETE" method="POST">
           <button type="submit"><i class="bi bi-star-fill"></i>💔 Remove from Favs</button>
         </form>
       <% } else if (user) { %>
-        <form action="/recipes/<%= recipe._id %>/favorites" method="POST">
+        <form action="/recipes/<%= recipe._id %>/favs" method="POST">
           <button type="submit"><i class="bi bi-star"></i>❤️ Add to Favs</button>
         </form>
       <% } %>
