@@ -69,6 +69,21 @@ Future enhancements and stretch goals:
 
 ## Screenshots
 
+  -[Guest Homepage](https://github.com/JimmyPerez1/Cooksy/blob/main/Assets/Wireframe/Actual/homeGuest.png?raw=true)
+
+  -[User Homepage](https://github.com/JimmyPerez1/Cooksy/blob/main/Assets/Wireframe/Actual/homeUser.png?raw=true)
+
+  -[Recipe Index](https://github.com/JimmyPerez1/Cooksy/blob/main/Assets/Wireframe/Actual/recipeIndex.png?raw=true)
+
+  -[Recipe Show](https://github.com/JimmyPerez1/Cooksy/blob/main/Assets/Wireframe/Actual/recipeShow.png?raw=true)
+
+  -[Community Index](https://github.com/JimmyPerez1/Cooksy/blob/main/Assets/Wireframe/Actual/communityIndex.png?raw=true)
+
+  -[User Profiles](https://github.com/JimmyPerez1/Cooksy/blob/main/Assets/Wireframe/Actual/communityId.png?raw=true)
+
+  -[User Favorites](https://github.com/JimmyPerez1/Cooksy/blob/main/Assets/Wireframe/Actual/recipeFavs.png?raw=true)
+
+
 
 
 
