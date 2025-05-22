@@ -78,16 +78,7 @@
 
   <div id="recipe-reviews">
     <h3>Reviews</h3>
-    <% if (recipe.reviews.length) { %> <% recipe.reviews.forEach(review => { %>
-    <div class="review">
-      <p>
-        <strong><%= review.user.username %></strong> - <%= review.rating %>/5
-      </p>
-      <p><%= review.experience %></p>
-    </div>
-    <% }) %> <% } else { %>
-    <p>No reviews yet.</p>
-    <% } %> <% if (currentUser) { %>
+ <% if (currentUser) { %>
     <form
       action="/recipes/<%= recipe._id %>/reviews"
       method="POST"
@@ -103,6 +94,16 @@
     </form>
     <% } else { %>
     <p><a href="/auth/sign-in">Sign in</a> to post a review!</p>
+    <% } %>
+        <% if (recipe.reviews.length) { %> <% recipe.reviews.forEach(review => { %>
+    <div class="review">
+      <p>
+        <strong><%= review.user.username %></strong> - <%= review.rating %>/5
+      </p>
+      <p><%= review.experience %></p>
+    </div>
+    <% }) %> <% } else { %>
+    <p>No reviews yet.</p>
     <% } %>
   </div>
 </section>

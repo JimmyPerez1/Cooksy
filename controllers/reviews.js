@@ -3,8 +3,6 @@ const router = express.Router({mergeParams: true});
 const Recipe = require('../models/recipe');
 const ensureLoggedIn = require('../middleware/ensure-logged-in');
 
-
-//Post a review
 router.post('/', ensureLoggedIn, async (req, res) => {
   try {
     const recipe = await Recipe.findById(req.params.id)

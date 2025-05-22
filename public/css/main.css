@@ -211,3 +211,74 @@ button:hover {
   object-fit: cover;
   margin-bottom: 0.5rem;
 }
+
+.recipe-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.recipe-card {
+  display: flex;
+  align-items: flex-start;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  gap: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.recipe-thumbnail img {
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.recipe-content {
+  flex: 1;
+}
+
+.recipe-content h2 {
+  margin: 0;
+}
+
+.recipe-content .description {
+  margin: 0.5rem 0;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.recipe-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.recipe-actions form,
+.recipe-actions button {
+  width: 100%;
+}
+
+.share-btn {
+  background-color: #eee;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.site-name {
+  font-family: 'Lobster', cursive;
+  font-size: 1.8rem;
+  margin: 0 1rem;
+  color: #009d80;
+  align-self: center;
+  user-select: none;
+}

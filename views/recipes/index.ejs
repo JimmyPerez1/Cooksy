@@ -3,13 +3,42 @@
 <h1><%= title %></h1>
 
 <% if (recipes.length) {%>
-<ul>
+<div class="recipe-list">
   <% recipes.forEach((recipe) => {%>
-  <li>
-    <a href="/recipes/<%= recipe._id%>"> <%= recipe.name %> </a>
-  </li>
-  <% }) %>
-</ul>
+  <div class="recipe-card">
+   <div class="recipe-thumbnail">
+          <% if (recipe.image) { %>
+            <img src="<%= recipe.image %>" alt="<%= recipe.name %>">
+          <% } else { %>
+            <img src="https://previews.123rf.com/images/kryzhov/kryzhov1809/kryzhov180902121/108986666-closeup-image-of-woman-eating-from-empty-plate.jpg" alt="Empty plate">
+          <% } %>
+        </div>
+         <div class="recipe-content">
+          <h2><a href="/recipes/<%= recipe._id %>"><%= recipe.name %></a></h2>
+          <p class="description"><%= recipe.description %></p>
+          <div class="meta-row">
+            <p><strong>Rating:</strong>  <% if (recipe.avgRating) { %>
+              <%= recipe.avgRating %> ⭐ (<%= recipe.totalReviews %> reviews)
+            <% } else { %>
+              No ratings yet
+            <% } %>
+          </p>
+            <p class="tags"><strong>Tags:</strong> [Coming Soon]</p>
+          </div>
+        </div>
+        <div class="recipe-actions">
+          <form action="/recipes/<%= recipe._id %>/yums" method="POST">
+            <button type="submit">😋 Yum (<%= recipe.yumedBy.length %>)</button>
+          </form>
+          <form action="/recipes/<%= recipe._id %>/favorites" method="POST">
+            <button type="submit">❤️ Favorite (<%= recipe.favoritedBy.length %>)</button>
+          </form>
+          <button class="share-btn">🔗 Share this recipe</button>
+        </div>
+    </div>
+    <% })%>
+  </div>
 <% } else {%>
 <p>There Are No Recipes Yet</p>
-<% } %> <%- include('../partials/footer') %>
+<% } %> 
+<%- include('../partials/footer') %>

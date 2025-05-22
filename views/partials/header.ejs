@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-  <title>COOKSY</title>
+<link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Lobster&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"> 
+<title>COOKSY</title>
 </head>
 <body>
   <nav>
     <a href="/">HOME</a>
+    <span class="site-name">Cooksy</span>
     <div>
       <a href="/recipes">EXPLORE RECIPES</a>
       <% if (user) { %>
@@ -22,7 +24,7 @@
       <% if (user) { %>
         <% const encodedSeed = encodeURIComponent(user.name); %>
           <img 
-            src="https://api.dicebear.com/9.x/fun-emoji/svg?seed=<%= encodedSeed %>&backgroundColor=ffdfbf&eyes=closed,closed2,cute,glasses,love,pissed,plain,sad,shades,sleepClose,stars&mouth=cute,drip,lilSmile,pissed,plain,sad,shout,shy,sick,smileLol,smileTeeth,tongueOut,wideSmile" 
+            src="https://api.dicebear.com/9.x/fun-emoji/svg?seed=<%= encodedSeed %>&backgroundColor=009d80&eyes=closed,closed2,cute,glasses,love,pissed,plain,sad,shades,sleepClose,stars&mouth=cute,drip,lilSmile,pissed,plain,sad,shout,shy,sick,smileLol,smileTeeth,tongueOut,wideSmile" 
             alt="Profile-pic"
             class="profile-pic"
           />

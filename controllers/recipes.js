@@ -3,26 +3,38 @@ const router = express.Router();
 const Recipes = require("../models/recipe");
 const ensureLoggedIn = require("../middleware/ensure-logged-in");
 const reviewRoutes = require("./reviews");
+const recipe = require("../models/recipe");
 
-
-
-
-// router.use(ensureLoggedIn);
-
-// ALL paths start with '/recipes'
-
-// index action /recipes
 router.get("/", async (req, res) => {
   const recipes = await Recipes.find({}).sort("-createdAt");
-  res.render("recipes/index.ejs", { recipes, title: "GLOBAL COOKBOOK" });
+
+  const updatedRecipes = recipes.map((recipe) => {
+    const totalReviews = recipe.reviews.length;
+    const totalRating = recipe.reviews.reduce(
+      (sum, review) => sum + review.rating,
+      0
+    );
+    const avgRating = totalReviews
+      ? (totalRating / totalReviews).toFixed(1)
+      : null;
+
+    return {
+      ...recipe.toObject(),
+      avgRating,
+      totalReviews,
+    };
+  });
+
+  res.render("recipes/index.ejs", {
+    recipes: updatedRecipes,
+    title: "GLOBAL COOKBOOK",
+  });
 });
 
-// new action GET /recipes/new
 router.get("/new", ensureLoggedIn, (req, res) => {
   res.render("recipes/new.ejs");
 });
 
-// create action POST /recipes
 router.post("/", ensureLoggedIn, async (req, res) => {
   try {
     req.body.createdBy = req.user._id;
@@ -45,7 +57,6 @@ router.post("/", ensureLoggedIn, async (req, res) => {
   }
 });
 
-// show GET /recipes/:id
 router.get("/:id", async (req, res) => {
   const recipe = await Recipes.findById(req.params.id)
     .populate("createdBy")
@@ -54,28 +65,29 @@ router.get("/:id", async (req, res) => {
     .populate("reviews.user");
   const isYumed = recipe.yumedBy.some((id) => id.equals(req.user?._id));
   const isFavored = recipe.favoritedBy.some((id) => id.equals(req.user?._id));
-  res.render("recipes/show.ejs", { recipe, isYumed, isFavored, currentUser: req.user });
+  res.render("recipes/show.ejs", {
+    recipe,
+    isYumed,
+    isFavored,
+    currentUser: req.user,
+  });
 });
 
-// Delete /recipes/:id
 router.delete("/:id", ensureLoggedIn, async (req, res) => {
   await Recipes.findByIdAndDelete(req.params.id);
   res.redirect("/recipes");
 });
 
-//EDIT /recipes/edit
 router.get("/:id/edit", ensureLoggedIn, async (req, res) => {
   const recipe = await Recipes.findById(req.params.id);
   res.render("recipes/edit.ejs", { recipe });
 });
 
-// Update /recipes/:id
 router.put("/:id", async (req, res) => {
   const recipe = await Recipes.findById(req.params.id);
   Object.assign(recipe, req.body);
   await recipe.save();
   res.redirect(`/recipes/${recipe._id}`);
 });
-
 
 module.exports = router;
