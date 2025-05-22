@@ -185,28 +185,29 @@ button:hover {
   vertical-align: middle;
 }
 
-  .users-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem; /* space between cards */
-    justify-content: center;
-    margin-top: 2rem;
-  }
+.user-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 1000px;
+}
 
-  .user.card {
-    width: 200px;
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    text-align: center;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
+.user-card {
+  width: 100px;
+  padding: .5rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
-  .user.card img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 0.5rem;
-  }
+.user-card-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}

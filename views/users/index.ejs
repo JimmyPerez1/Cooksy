@@ -3,9 +3,9 @@
 
 <h1>Explore The COOKSY Community</h1>
 
-  <div class="user-container">
+  <div class="user-grid">
       <% users.forEach(user => { %>
-        <div class="user card">
+        <div class="user-card">
           <% if (user) { %>
             <% const encodedSeed = encodeURIComponent(user.name); %>
               <img 

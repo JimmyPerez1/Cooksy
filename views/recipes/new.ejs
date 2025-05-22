@@ -3,28 +3,43 @@
 <h1>Add a New Recipe</h1>
 
 <form action="/recipes" method="POST">
-
   <label for="name">Recipe Name:</label>
-  <input type="text" id="name" name="name" required>
+  <input type="text" id="name" name="name" required />
 
   <label for="image">Image URL</label>
-  <input type="text" id="image" name="image"/>
+  <input type="text" id="image" name="image" />
 
   <label for="description">Description:</label>
   <textarea id="description" name="description" rows="3" required></textarea>
 
   <label for="ingredients">Ingredients:</label>
-  <textarea id="ingredients" name="ingredients" rows="5" placeholder="e.g.&#10;- 1 cup flour&#10;- 2 eggs" required></textarea>
+  <textarea
+    id="ingredients"
+    name="ingredients"
+    rows="5"
+    placeholder="e.g.&#10;- 1 cup flour&#10;- 2 eggs"
+    required
+  ></textarea>
 
   <label for="directions">Directions:</label>
-  <textarea id="directions" name="directions" rows="5" placeholder="e.g.&#10;1. Preheat oven to 350°F&#10;2. Mix ingredients" required></textarea>
+  <textarea
+    id="directions"
+    name="directions"
+    rows="5"
+    placeholder="e.g.&#10;1. Preheat oven to 350°F&#10;2. Mix ingredients"
+    required
+  ></textarea>
 
   <label for="cookTime">Time to Cook (in minutes):</label>
-  <input type="number" id="cookTime" name="cookTime" placeholder="e.g. 45" min ="1"><br>
+  <input
+    type="number"
+    id="cookTime"
+    name="cookTime"
+    placeholder="e.g. 45"
+    min="1"
+  /><br />
 
   <button type="submit">➕ ADD RECIPE</button>
-  
 </form>
-
 
 <%- include('../partials/footer.ejs') %>

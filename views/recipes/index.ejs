@@ -3,17 +3,13 @@
 <h1><%= title %></h1>
 
 <% if (recipes.length) {%>
-    <ul>
-       <% recipes.forEach((recipe) => {%>
-        <li>
-            <a href="/recipes/<%= recipe._id%>">
-                <%= recipe.name %>
-            </a>
-        </li>
-        <% }) %> 
-    </ul>
-    <% } else {%>
-        <p>There Are No Recipes Yet</p>
-<% } %>
-
-<%- include('../partials/footer') %>
+<ul>
+  <% recipes.forEach((recipe) => {%>
+  <li>
+    <a href="/recipes/<%= recipe._id%>"> <%= recipe.name %> </a>
+  </li>
+  <% }) %>
+</ul>
+<% } else {%>
+<p>There Are No Recipes Yet</p>
+<% } %> <%- include('../partials/footer') %>

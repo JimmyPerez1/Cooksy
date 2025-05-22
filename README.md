@@ -13,3 +13,7 @@ https://previews.123rf.com/images/kryzhov/kryzhov1809/kryzhov180902121/108986666
 attributions
 
 midjourney for logo and stock chef image
+
+
+avatars from dice bear
+https://www.dicebear.com/styles/fun-emoji/

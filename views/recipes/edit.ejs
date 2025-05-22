@@ -1,34 +1,49 @@
 <%- include('../partials/header.ejs') %>
 
-<h1>EDITING <%= recipe.name  %></h1>
+<h1>EDITING <%= recipe.name %></h1>
 
 <form action="/recipes/<%= recipe._id%>?_method=PUT" method="POST">
-
   <label for="name">Recipe Name:</label>
-  <input type="text" id="name" name="name" required value="<%= recipe.name %>">
+  <input
+    type="text"
+    id="name"
+    name="name"
+    required
+    value="<%= recipe.name %>"
+  />
 
   <label for="image">Image URL</label>
-  <input type="text" id="image" name="image" value="<%= recipe.image %>"/>
+  <input type="text" id="image" name="image" value="<%= recipe.image %>" />
 
   <label for="description">Description:</label>
-  <textarea id="description" name="description" rows="3" required>"<%= recipe.description %>"</textarea>
+  <textarea id="description" name="description" rows="3" required>
+"<%= recipe.description %>"</textarea
+  >
 
   <label for="ingredients">Ingredients:</label>
-  <textarea id="ingredients" name="ingredients" rows="5" required>"<%= recipe.ingredients %>"</textarea>
+  <textarea id="ingredients" name="ingredients" rows="5" required>
+"<%= recipe.ingredients %>"</textarea
+  >
 
   <label for="directions">Directions:</label>
-  <textarea id="directions" name="directions" rows="5" required>"<%= recipe.directions %>"</textarea>
+  <textarea id="directions" name="directions" rows="5" required>
+"<%= recipe.directions %>"</textarea
+  >
 
   <label for="cookTime">Time to Cook (in minutes):</label>
-  <input type="number" id="cookTime" name="cookTime" min ="1" value="<%= recipe.cookTime %>"><br>
+  <input
+    type="number"
+    id="cookTime"
+    name="cookTime"
+    min="1"
+    value="<%= recipe.cookTime %>"
+  /><br />
 
-  <button type="submit"> UPDATE RECIPE</button>
-  
+  <button type="submit">UPDATE RECIPE</button>
 </form>
-  
+
 <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
-      <button type="submit">🗑️</button>
+  <button type="submit">🗑️</button>
 
-
-
-<%- include('../partials/footer.ejs') %>
+  <%- include('../partials/footer.ejs') %>
+</form>

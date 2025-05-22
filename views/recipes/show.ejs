@@ -3,12 +3,17 @@
 <h1><%= recipe.name %></h1>
 
 <section id="recipe-show">
-
   <div id="recipe-image">
     <% if (recipe.image) { %>
-      <img src="<%= recipe.image %>" alt="<%= recipe.name %>" style="width: 100%; border-radius: 8px;" />
+    <img
+      src="<%= recipe.image %>"
+      alt="<%= recipe.name %>"
+      style="width: 100%; border-radius: 8px"
+    />
     <% } else { %>
-      <img src="https://previews.123rf.com/images/kryzhov/kryzhov1809/kryzhov180902121/108986666-closeup-image-of-woman-eating-from-empty-plate.jpg" />
+    <img
+      src="https://previews.123rf.com/images/kryzhov/kryzhov1809/kryzhov180902121/108986666-closeup-image-of-woman-eating-from-empty-plate.jpg"
+    />
     <% } %>
   </div>
 
@@ -16,72 +21,90 @@
     <div id="recipe-info">
       <h2><%= recipe.name %></h2>
       <p><strong>Chef:</strong> <%= recipe.createdBy.name %></p>
-      <p><strong>Created On:</strong> <%= recipe.createdAt.toLocaleDateString() %></p>
+      <p>
+        <strong>Created On:</strong> <%= recipe.createdAt.toLocaleDateString()
+        %>
+      </p>
       <p><strong>Description:</strong> <%= recipe.description %></p>
-
-
 
       <h3>Ingredients</h3>
       <ul>
         <% recipe.ingredients.forEach(ingredient => { %>
-          <li><%= ingredient %></li>
+        <li><%= ingredient %></li>
         <% }) %>
       </ul>
 
       <h3>Directions</h3>
       <ol>
         <% recipe.directions.forEach(step => { %>
-          <li><%= step %></li>
+        <li><%= step %></li>
         <% }) %>
       </ol>
     </div>
     <div class="button-group">
-            <p>😋 <%= recipe.yumedBy.length %> Yums</p>
+      <p>😋 <%= recipe.yumedBy.length %> Yums</p>
       <p>❤️ <%= recipe.favoritedBy.length %> Favorites</p>
       <% if (isYumed) { %>
-        <form action="/recipes/<%= recipe._id %>/yums?_method=DELETE" method="POST">
-          <button type="submit"><i class="bi bi-heart-fill"></i>🤮 Un-yum</button>
-        </form>
+      <form
+        action="/recipes/<%= recipe._id %>/yums?_method=DELETE"
+        method="POST"
+      >
+        <button type="submit"><i class="bi bi-heart-fill"></i>🤮 Un-yum</button>
+      </form>
       <% } else if (user) { %>
-        <form action="/recipes/<%= recipe._id %>/yums" method="POST">
-          <button type="submit"><i class="bi bi-heart"></i>😋 Yum it!</button>
-        </form>
-      <% } %>
-
-      <% if (isFavored) { %>
-        <form action="/recipes/<%= recipe._id %>/favs?_method=DELETE" method="POST">
-          <button type="submit"><i class="bi bi-star-fill"></i>💔 Remove from Favs</button>
-        </form>
+      <form action="/recipes/<%= recipe._id %>/yums" method="POST">
+        <button type="submit"><i class="bi bi-heart"></i>😋 Yum it!</button>
+      </form>
+      <% } %> <% if (isFavored) { %>
+      <form
+        action="/recipes/<%= recipe._id %>/favs?_method=DELETE"
+        method="POST"
+      >
+        <button type="submit">
+          <i class="bi bi-star-fill"></i>💔 Remove from Favs
+        </button>
+      </form>
       <% } else if (user) { %>
-        <form action="/recipes/<%= recipe._id %>/favs" method="POST">
-          <button type="submit"><i class="bi bi-star"></i>❤️ Add to Favs</button>
-        </form>
-      <% } %>
-      <% if (user && user._id.equals(recipe.createdBy._id)) { %>
-          <a href="/recipes/<%= recipe._id %>/edit" class="btn full-width">✏️ Edit recipe</a>
+      <form action="/recipes/<%= recipe._id %>/favs" method="POST">
+        <button type="submit"><i class="bi bi-star"></i>❤️ Add to Favs</button>
+      </form>
+      <% } %> <% if (user && user._id.equals(recipe.createdBy._id)) { %>
+      <a href="/recipes/<%= recipe._id %>/edit" class="btn full-width"
+        >✏️ Edit recipe</a
+      >
       <% } %>
     </div>
   </div>
-    
 
-<div id="recipe-reviews">
-
+  <div id="recipe-reviews">
     <h3>Reviews</h3>
-    <% if (recipe.reviews.length) { %>
-      <% recipe.reviews.forEach(review => { %>
-        <div class="review">
-          <p><strong><%= review.user.username %></strong> - <%= review.rating %>/5</p>
-          <p><%= review.experience %></p>
-          <hr />
-        </div>
-      <% }) %>
+    <% if (recipe.reviews.length) { %> <% recipe.reviews.forEach(review => { %>
+    <div class="review">
+      <p>
+        <strong><%= review.user.username %></strong> - <%= review.rating %>/5
+      </p>
+      <p><%= review.experience %></p>
+    </div>
+    <% }) %> <% } else { %>
+    <p>No reviews yet.</p>
+    <% } %> <% if (currentUser) { %>
+    <form
+      action="/recipes/<%= recipe._id %>/reviews"
+      method="POST"
+      class="review-form"
+    >
+      <label for="rating">Rating (0–5):</label>
+      <input type="number" name="rating" min="0" max="5" required />
+
+      <label for="experience">Share your experience:</label>
+      <textarea name="experience" rows="3" required></textarea>
+
+      <button type="submit">Post Review</button>
+    </form>
     <% } else { %>
-      <p>No reviews yet.</p>
+    <p><a href="/auth/sign-in">Sign in</a> to post a review!</p>
     <% } %>
   </div>
-
 </section>
-
-
 
 <%- include('../partials/footer.ejs') %>
