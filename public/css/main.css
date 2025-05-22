@@ -3,6 +3,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
 body {
   margin: 0;
   height: 100vh;
@@ -281,4 +282,77 @@ button:hover {
   color: #009d80;
   align-self: center;
   user-select: none;
+}
+
+@media (max-width: 768px) {
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  nav a {
+    padding: 2vmin 4vmin;
+    font-size: 3.5vw;
+       font-size: 3.5vw;
+  }
+
+  nav span {
+    font-size: 3vw;
+  }
+
+  .recipe-list {
+    flex-direction: column;
+    padding: 0.5rem;
+  }
+
+  .recipe-card {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0.5rem;
+  }
+
+ .recipe-thumbnail img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+    .recipe-content {
+    width: 100%;
+    text-align: center;
+  }
+
+    .recipe-actions {
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+    .recipe-actions form,
+  .recipe-actions button {
+    width: auto;
+    flex: 1;
+  }
+
+    main {
+    margin-top: 2vmin;
+  }
+
+    #show-page > div {
+    max-width: 100%;
+  }
+
+    .profile-pic {
+    width: 40px;
+    height: 40px;
+  }
+
+    .profile-pic-large {
+    width: 120px;
+    height: 120px;
+  }
 }
